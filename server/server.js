@@ -6,7 +6,8 @@ const sequelize = require('./config/database');
 const User = require('./models/User');            
 const authRoutes = require('./routes/auth');
 const protectedRoutes = require('./routes/protected');
-
+const uploadRoutes = require('./routes/upload');
+const projectRoutes = require('./routes/project');
 
 const app = express();
 
@@ -20,7 +21,8 @@ app.use(express.json());
 
 app.use('/auth', authRoutes);
 app.use('/protected', protectedRoutes);
-
+app.use('/upload', uploadRoutes);
+app.use('/projects', projectRoutes);
 app.get('/', (req, res) => {
   res.send('Client Data Dashboard Backend is running');
 });
